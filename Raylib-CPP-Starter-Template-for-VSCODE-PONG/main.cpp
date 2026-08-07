@@ -3,8 +3,14 @@
 
 using namespace std;
 
-const int screenWidth = 1280;
-const int screenHeight = 800;
+Color Green = Color{38, 185, 154, 255};
+Color Dark_Green = Color{20, 160, 133, 255};
+Color Light_Green = Color{129, 204, 184, 255};
+Color Yellow = Color{243, 213, 91, 255};
+Color Orange = Color{255,127,0,255};
+
+const float screenWidth = 1280;
+const float screenHeight = 800;
 int player_score = 0;
 int cpu_score = 0;
    
@@ -17,7 +23,7 @@ class Ball{
         Ball(int x_cons, int y_cons, int speedx, int speedy, int rad) {x = x_cons; y = y_cons; speed_x = speedx; speed_y = speedy; radius = rad;};
     
     void Draw(){
-        DrawCircle(x,y,radius,WHITE);
+        DrawCircle(x,y,radius,Yellow);
     }
 
     void Update(){
@@ -89,7 +95,8 @@ class Paddle{
 
         void Draw(){
             // 10, screenHeight/2 - 50,20,100,WHITE
-            DrawRectangle(x,y,width,height, WHITE);
+            //DrawRectangle(x,y,width,height, WHITE);
+            DrawRectangleRounded(Rectangle{x, y, width, height}, 0.8, 0, WHITE);
         }
 
         void Update() {
@@ -121,17 +128,27 @@ class CPUpaddle : public Paddle{
         }
 };
 
-Ball b(600, 200, 6, 6, 10);
+Ball b(600, 200, 6, 6, 20);
 Paddle player(10.0, screenHeight/2 - 50.0,20.0,100.0);
 CPUpaddle cpu(screenWidth - 30.0f, screenHeight/2.0f - 50.0f,20.0f,100.0f);
 
 int main () {
     cout << "Starting the game" << endl;
     InitWindow(screenWidth,screenHeight,"GRAWE Pong");
+
+    cout << "Raylib is looking inside: " << GetWorkingDirectory() << endl;
+
+    Image image = LoadImage("../assets/Logo_GRAWE_2021_RGB.png"); // or "../assets/..."
+    ImageResize(&image, 257, 100);
+    Texture2D texture = LoadTextureFromImage(image);
+    UnloadImage(image);
+
     SetTargetFPS(60);
 
     while(WindowShouldClose()==false){
         BeginDrawing();
+
+        
         
         
         //test comment
@@ -145,11 +162,28 @@ int main () {
             b.speed_x *= (-1);
         }
 
-        ClearBackground(BLACK);
+        ClearBackground(Dark_Green);
+        DrawRectangle(screenWidth/2,0,screenWidth/2,screenHeight,Green);
         //Drawing
         //Rectangle left
         //DrawRectangle(screenWidth-30, screenHeight/2 - 50,20,100,WHITE);
         
+        //DrawCircle(screenWidth/2,screenHeight/2,100,Light_Green);
+
+        
+        DrawTexture(texture, screenWidth/2 - texture.width/2, screenHeight/2 - texture.height/2, Color{255, 255, 255, 100});
+        
+
+        //Drawing line which separates fields
+        //DrawLine(screenWidth/2, 0, screenWidth/2, screenHeight/2-image.height/2, WHITE);
+        DrawLineEx(Vector2{screenWidth/2.0f, 0}, Vector2{screenWidth/2.0f, screenHeight/2.0f-image.height/2.0f}, 4.0f, WHITE);
+        //DrawLine(screenWidth/2, screenHeight/2+image.height/2, screenWidth/2, screenHeight, WHITE);
+        DrawLineEx(Vector2{screenWidth/2, screenHeight/2+image.height/2}, Vector2{screenWidth/2, screenHeight}, 4.0f, WHITE);
+        DrawRectangleLinesEx(Rectangle{screenWidth / 2.0f - texture.width / 2.0f, screenHeight / 2.0f - texture.height / 2.0f, (float)texture.width, (float)texture.height}, 4.0f, WHITE);
+        //DrawLine()
+        DrawText(TextFormat("%i", cpu_score), screenWidth/4 - 20, 20, 80, WHITE);
+        DrawText(TextFormat("%i", player_score), 3 * screenWidth/4 - 20, 20, 80, WHITE);
+
         player.Update();
         player.Draw();
         
@@ -159,13 +193,8 @@ int main () {
         cpu.Update(b.y);
         cpu.Draw();
 
-        //Drawing line which separates fields
-        DrawLine(screenWidth/2, 0, screenWidth/2, screenHeight, WHITE);
-
-        DrawText(TextFormat("%i", cpu_score), screenWidth/4 - 20, 20, 80, WHITE);
-        DrawText(TextFormat("%i", player_score), 3 * screenWidth/4 - 20, 20, 80, WHITE);
-
         EndDrawing();
+        
     }
 
     CloseWindow();
