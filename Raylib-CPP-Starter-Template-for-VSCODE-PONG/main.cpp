@@ -171,7 +171,7 @@ int main () {
         //DrawCircle(screenWidth/2,screenHeight/2,100,Light_Green);
 
         
-        DrawTexture(texture, screenWidth/2 - texture.width/2, screenHeight/2 - texture.height/2, Color{255, 255, 255, 100});
+        DrawTexture(texture, screenWidth/2 - texture.width/2, screenHeight/2 - texture.height/2, Color{255, 255, 255, 255});
         
 
         //Drawing line which separates fields
