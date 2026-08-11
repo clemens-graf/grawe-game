@@ -2,7 +2,7 @@
 *.exe
 *.o
 
-# Ignoriere Word-Dokumente (falls du sie lokal im Ordner behältst)
+# Ignoriere Word-Dokumente
 *.docx
 
 # VS Code Dateien

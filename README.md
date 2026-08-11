@@ -11,7 +11,7 @@ Die Entwicklung erfolgte nach Absprache mit meinem Vorgesetzten und nachdem alle
 ### 1. Pong (GRAWE Edition)
 Ein klassischer Pong-Klon im GRAWE-Design, programmiert in C++ unter Verwendung der Raylib-Bibliothek.
 
-![Preview of GRAWE Pong](assets/grawe_pong_preview.png)
+![Pong Gameplay](assets/pong_gameplay.gif)
 
 <!-- ### 2. Jump And Insurance (GRAWE Edition) -->
 
