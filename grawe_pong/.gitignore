@@ -1,0 +1,9 @@
+# Ignoriere kompilierte Dateien
+*.exe
+*.o
+
+# Ignoriere Word-Dokumente (falls du sie lokal im Ordner behältst)
+*.docx
+
+# VS Code Dateien
+.vscode/
