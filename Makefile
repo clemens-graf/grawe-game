@@ -32,7 +32,7 @@ endif
 
 # 1. PONG
 PONG_SRC = grawe_pong/grawe_pong.cpp
-PONG_OUT = grawe_pong/pong$(EXT)
+PONG_OUT = grawe_pong/grawe_pong$(EXT)
 
 pong: $(PONG_SRC)
 	$(CXX) $(CXXFLAGS) $(PONG_SRC) -o $(PONG_OUT) $(LIBS)
@@ -42,7 +42,7 @@ run-pong: pong
 
 # 2. SNAKE
 SNAKE_SRC = grawe_snake/grawe_snake.cpp
-SNAKE_OUT = grawe_snake/snake$(EXT)
+SNAKE_OUT = grawe_snake/grawe_snake$(EXT)
 
 snake: $(SNAKE_SRC)
 	$(CXX) $(CXXFLAGS) $(SNAKE_SRC) -o $(SNAKE_OUT) $(LIBS)

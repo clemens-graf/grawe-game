@@ -137,7 +137,7 @@ int main () {
 
     cout << "Raylib is looking inside: " << GetWorkingDirectory() << endl;
 
-    Image image = LoadImage("../assets/Logo_GRAWE_2021_RGB.png"); // or "../assets/..."
+    Image image = LoadImage("assets/Logo_GRAWE_2021_RGB.png"); // or "../assets/..."
     ImageResize(&image, 257, 100);
     Texture2D texture = LoadTextureFromImage(image);
     UnloadImage(image);
