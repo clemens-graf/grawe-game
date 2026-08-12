@@ -1,15 +1,15 @@
 # GRAWE Minigame Collection
 
-Dieses Repository enthält kleine Spiele, die im Laufe meines IT-Praktikums bei der **GRAWE** im August 2026 entstanden sind. 
+This repository contains small games developed during my IT internship at **GRAWE** in August 2026. 
 
-Die Entwicklung erfolgte nach Absprache mit meinem Vorgesetzten und nachdem alle mir zugeteilten Aufgaben in meinem Kernbereich (IT-Projektmanagement) erfolgreich abgeschlossen waren.
+The development took place in consultation with my supervisor and after all assigned tasks in my core area (IT project management) were successfully completed.
 
 ---
 
-## Enthaltene Spiele
+## Included Games
 
 ### 1. Pong (GRAWE Edition)
-Ein klassischer Pong-Klon im GRAWE-Design, programmiert in C++ unter Verwendung der Raylib-Bibliothek.
+A classic Pong clone featuring a GRAWE-inspired design, programmed in C++ using the Raylib library.
 
 ![Pong Gameplay](assets/pong_gameplay.gif)
 
@@ -17,25 +17,28 @@ Ein klassischer Pong-Klon im GRAWE-Design, programmiert in C++ unter Verwendung 
 
 ---
 
-## Kompilierung und Ausführung
+## Compilation and Execution
 
-Das Projekt nutzt ein plattformübergreifendes `Makefile`, welches das Betriebssystem (Windows, macOS, Linux) automatisch erkennt und die entsprechenden Build-Parameter anwendet.
+The project utilizes a cross-platform `Makefile` that automatically detects the operating system (Windows, macOS, Linux) and applies the appropriate build parameters.
 
-### Voraussetzungen
-Für die erfolgreiche Kompilierung sind folgende Komponenten erforderlich:
-* Ein C++ Compiler (`g++` für Windows/Linux, `clang++` für macOS)
-* Ein Make-Tool (`mingw32-make` auf Windows, `make` auf Linux/macOS)
-* Die **[Raylib-Bibliothek](https://www.raylib.com/)** (Unter Windows wird der Standardpfad `C:/raylib/raylib/src` erwartet, unter macOS wird eine Installation via Homebrew vorausgesetzt).
+### Prerequisites
+The following components are required for successful compilation:
+* A C++ compiler (`g++` for Windows/Linux, `clang++` for macOS)
+* A Make tool (`mingw32-make` on Windows, `make` on Linux/macOS)
+* The **[Raylib library](https://www.raylib.com/)** (On Windows, the default path `C:/raylib/raylib/src` is expected; on macOS, an installation via Homebrew is required).
 
-### Anleitung
-Zur Ausführung des Spiels muss ein Terminal im entsprechenden Projektordner (z.B. `grawe_pong`) geöffnet werden. Der folgende Befehl baut den Quellcode und startet das Spiel im Anschluss automatisch:
+### Instructions
+To run the games, open a terminal in the root `grawe-game` folder. The following commands will build the source code and automatically start the respective game:
 
-**Unter Windows:**
+**On Windows:**
 ```powershell
-mingw32-make run
+mingw32-make run-pong
+mingw32-make run-snake
 ```
 
-**Unter macOS/Linux:**
-```powershell
-make run
+**On macOS/Linux:**
+
+```bash
+make run-pong
+make run-snake
 ```

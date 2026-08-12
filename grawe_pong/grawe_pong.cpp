@@ -94,7 +94,6 @@ class Paddle{
         }
 
         void Draw(){
-            // 10, screenHeight/2 - 50,20,100,WHITE
             //DrawRectangle(x,y,width,height, WHITE);
             DrawRectangleRounded(Rectangle{x, y, width, height}, 0.8, 0, WHITE);
         }
@@ -166,11 +165,9 @@ int main () {
         //DrawRectangle(screenWidth-30, screenHeight/2 - 50,20,100,WHITE);
         
         //DrawCircle(screenWidth/2,screenHeight/2,100,Light_Green);
-
         
         DrawTexture(texture, screenWidth/2 - texture.width/2, screenHeight/2 - texture.height/2, Color{255, 255, 255, 255});
         
-
         //Drawing line which separates fields
         //DrawLine(screenWidth/2, 0, screenWidth/2, screenHeight/2-image.height/2, WHITE);
         DrawLineEx(Vector2{screenWidth/2.0f, 0}, Vector2{screenWidth/2.0f, screenHeight/2.0f-image.height/2.0f}, 4.0f, WHITE);
